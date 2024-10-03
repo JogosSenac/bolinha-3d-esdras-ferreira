@@ -63,6 +63,8 @@ public class TravisMove : MonoBehaviour
         if (other.gameObject.CompareTag("Lava"))
         {
             estaVivo = false;
+            Time.timeScale = 0;
         }
+
     }
 }
