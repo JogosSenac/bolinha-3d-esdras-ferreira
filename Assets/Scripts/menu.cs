@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Biblioteca para controle de cenas
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
