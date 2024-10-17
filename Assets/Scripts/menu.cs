@@ -9,4 +9,5 @@ public class MenuController : MonoBehaviour
         // Carrega a cena chamada "Início"
         SceneManager.LoadScene("Inicio");
     }
+
 }

@@ -65,6 +65,6 @@ public class TravisMove : MonoBehaviour
             estaVivo = false;
             Time.timeScale = 0;
         }
-    
     }
+
 }
