@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class menu : MonoBehaviour
+public class creditos : MonoBehaviour
 {
     // Função para o botão "Play"
-    public void PlayGame()
+    public void credito()
     {
         // Carrega a cena chamada "Início"
-        SceneManager.LoadScene("Inicio");
+        SceneManager.LoadScene("creditos e comandos");
     }
 
 }

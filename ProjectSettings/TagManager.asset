@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CuboBrilhante
   - Lava
+  - Pontos
+  - Voltar
   layers:
   - Default
   - TransparentFX

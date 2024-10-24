@@ -1,6 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TravisMove : MonoBehaviour
 {
@@ -11,6 +16,8 @@ public class TravisMove : MonoBehaviour
     [SerializeField] private float forcaPulo;
     [SerializeField] private int pontos;
     private bool estaVivo;
+    private TextMeshProUGUI textoPontos;
+    private TextMeshProUGUI textoTotal;
 
     [Header("Sons Do Travis")]
     [SerializeField] private AudioClip pulo;
@@ -24,7 +31,11 @@ public class TravisMove : MonoBehaviour
         estaVivo = true;
         rb = GetComponent<Rigidbody>();
         audioPlayer = GetComponent<AudioSource>();
+        textoPontos = GameObject.FindGameObjectWithTag("Pontos").GetComponent<TextMeshProUGUI>();
+        textoTotal = GameObject.Find("Total").GetComponent<TextMeshProUGUI>();
+        textoTotal.text = GameObject.FindGameObjectsWithTag("CuboBrilhante").Length.ToString();
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -55,16 +66,42 @@ public class TravisMove : MonoBehaviour
             Destroy(other.gameObject);
             audioPlayer.PlayOneShot(pegaCubo);
             pontos++;
+            VerificaObjetivos();
+            textoPontos.text = pontos.ToString();
         }
-    }
 
-    private void OnCollisionEnter(Collision other)
+          else if (other.gameObject.CompareTag("Lava"))
+            {
+
+                SceneManager.LoadScene("GameOver");
+            }
+        }
+
+
+    private void VerificaObjetivos()
     {
-        if (other.gameObject.CompareTag("Lava"))
+        int totalCubos = Int32.Parse(textoTotal.text);
+        TextMeshProUGUI objetivo = GameObject.Find("Objetivo").GetComponent<TextMeshProUGUI>();
+        Debug.LogFormat($"Pontos: {pontos}, Total Cubos: {totalCubos}");
+
+        if (pontos < totalCubos)
         {
-            estaVivo = false;
-            Time.timeScale = 0;
+            objetivo.text = "Pegue todos os cubos!";
+        }
+
+        if (pontos >= totalCubos / 2)
+        {
+            objetivo.text = "Playboi carti está orgulhoso!";
+        }
+
+        if (pontos >= totalCubos - 5)
+        {
+            objetivo.text = "TA QUASE, FWEH!";
+        }
+
+        if (pontos == totalCubos)
+        {
+            objetivo.text = "Todos os cubos coletados!";
         }
     }
-
 }

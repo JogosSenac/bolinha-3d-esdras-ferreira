@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: b55262e14a4271e49980d640ad430635
   - enabled: 1
+    path: Assets/Scenes/creditos e comandos.unity
+    guid: 282507fe6f9130047a46d700f39ed44d
+  - enabled: 1
     path: Assets/Scenes/Inicio.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Fase2.unity
+    guid: 6991be64ff5125d42a9ee89d3ed0e648
+  - enabled: 1
+    path: Assets/Scenes/GameWin.unity
+    guid: d5a2e532a996a4248a2c517b174e3d05
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 31ea720e76e7d4c4289eabed70910e56
   m_configObjects: {}
